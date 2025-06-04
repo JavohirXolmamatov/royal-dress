@@ -24,8 +24,8 @@ const CheckourModal = ({ isOpen, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const token = `7356453117:AAGCcU1rfib6FYCKoJlt8-77Dgq5RK8UgkE`;
-    const chat_id = `5625872174`;
+    const token = import.meta.env.VITE_BOT_TOKEN;
+    const chat_id = import.meta.env.VITE_CHAT_ID;
     const URL = `https://api.telegram.org/bot${token}/sendMessage`;
     const text = `Sizga Yangi Xabar:
       \n Ism: ${wishlistData.name}
@@ -65,7 +65,10 @@ const CheckourModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-lg w-full max-w-[90vh] relative">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white rounded-lg w-full max-w-[90vh] relative"
+      >
         <button
           onClick={() => {
             resetFrom(), onClose();
@@ -88,6 +91,7 @@ const CheckourModal = ({ isOpen, onClose }) => {
               value={wishlistData?.name}
               onChange={handleDetails}
               className="w-full border border-gray-300 rounded p-2"
+              required
             />
           </div>
 
@@ -125,6 +129,7 @@ const CheckourModal = ({ isOpen, onClose }) => {
               value={wishlistData?.email}
               onChange={handleDetails}
               className="w-full border border-gray-300 rounded p-2"
+              required
             />
           </div>
 
@@ -138,6 +143,7 @@ const CheckourModal = ({ isOpen, onClose }) => {
                 value={wishlistData?.country}
                 onChange={handleDetails}
                 className="w-full border border-gray-300 rounded p-2 appearance-none"
+                required
               >
                 <option value="">Please select</option>
                 <option value="us">United States</option>
@@ -173,6 +179,7 @@ const CheckourModal = ({ isOpen, onClose }) => {
               type="text"
               value={wishlistData?.city}
               onChange={handleDetails}
+              required
               className="w-full border border-gray-300 rounded p-2"
             />
           </div>
@@ -205,13 +212,14 @@ const CheckourModal = ({ isOpen, onClose }) => {
 
           {/* Send Message button */}
           <button
-            onClick={handleSubmit}
+            // onClick={handleSubmit}
+            type="submit"
             className="w-full bg-black text-white py-3 rounded font-medium cursor-pointer hover:opacity-80 transition-colors"
           >
             Send Message
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

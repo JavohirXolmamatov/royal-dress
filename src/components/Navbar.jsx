@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AoronLogo from "../assets/aoron_logo.png";
+import royalDress from "../assets/royal dress.png";
 import { useTranslation } from "react-i18next";
 import { useWishlist } from "../hooks/useWishlist";
 
@@ -22,7 +22,11 @@ const Navbar = () => {
           to="/"
           className="lg:text-[22px] font-light tracking-widest uppercase animate-fade-in"
         >
-          <img className="w-[60px]" src={AoronLogo} alt="aoron_logo" />
+          <img
+            className="w-[50px] rounded-tr-2xl rounded-bl-2xl"
+            src={royalDress}
+            alt="aoron_logo"
+          />
         </Link>
         <nav className="hidden md:flex items-center space-x-8">
           <Link

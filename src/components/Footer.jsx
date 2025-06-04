@@ -1,5 +1,4 @@
-import React from "react";
-import AoronLogo from "../assets/aoron_logo.png";
+import royalDress from "../assets/royal dress.png";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -11,7 +10,11 @@ const Footer = () => {
       <div className="container w-full max-w-[1400px] mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="space-y-4">
-            <img className="w-20" src={AoronLogo} alt="aoron_logo" />
+            <img
+              className="w-20 rounded-tr-2xl rounded-bl-2xl"
+              src={royalDress}
+              alt="aoron_logo"
+            />
             <p className="text-sm text-muted-foreground">{t("footer.title")}</p>
             <div className="flex space-x-4">
               <a
@@ -98,7 +101,6 @@ const Footer = () => {
               <Link
                 to="/catalog"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                
               >
                 {t("footer.shop.shorts")}
               </Link>
@@ -178,7 +180,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-xs text-muted-foreground">
-              © 2025 AORON. {t("footer.right")}.
+              © 2025 ROYAL-DRESS. {t("footer.right")}.
             </p>
           </div>
         </div>
